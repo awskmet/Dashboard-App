@@ -37,7 +37,7 @@ public class ParamaterFilter extends HttpFilter implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		// TODO Auto-generated method stub
 		// place your code here
-		// print each param, getvalue is array becasue you can have multiple params of the same name
+		// print each param, getvalue is array becasue you can have multiple params of the same name. String.format is there to format the key and value %s then prints : then next string
 		request.getParameterMap().entrySet().stream().forEach(entry -> {
 			System.out.println(String.format("%s:%s", entry.getKey(), entry.getValue()[0]));
 		});
