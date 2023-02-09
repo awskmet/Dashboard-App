@@ -10,7 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class HomeServlet
  */
-@WebServlet("/home")
+//for filter  would have to add asyncsuppoprted to same spot in filter class
+@WebServlet(urlPatterns="/home", asyncSupported=true)
 public class HomeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

@@ -1,4 +1,4 @@
-package com.dashboard.servlet;
+package com.dashboard.servlet.toolservlets;
 
 import java.io.IOException;
 import javax.servlet.Filter;
