@@ -43,12 +43,6 @@ public class AsyncServlet extends HttpServlet {
 					asyncContext.complete();
 				}catch(InterruptedException e) {
 
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-
-			}
-
 		});
 		response.getWriter().append("I'm much quicker and didn't want to wait for thread two to finish, so I'll go ahead and finish (thread one)\n");
 	}
@@ -61,4 +55,4 @@ public class AsyncServlet extends HttpServlet {
 		doGet(request, response);
 	}
 
-}
+
