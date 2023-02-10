@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(urlPatterns="/async", asyncSupported=true)
 public class AsyncServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -36,19 +36,13 @@ public class AsyncServlet extends HttpServlet {
 			@Override
 			public void run() {
 				try {
-					
+
 					response.getWriter().append("I'm thread two. I'm gonna take forever so I'm separated \n");
 					Thread.sleep(2000);
 					response.getWriter().append("I'm done (thread two)\n");
 					asyncContext.complete();
 				}catch(InterruptedException e) {
-					
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-				
-			}
-			
+
 		});
 		response.getWriter().append("I'm much quicker and didn't want to wait for thread two to finish, so I'll go ahead and finish (thread one)\n");
 	}
@@ -61,4 +55,4 @@ public class AsyncServlet extends HttpServlet {
 		doGet(request, response);
 	}
 
-}
+
