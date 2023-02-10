@@ -30,7 +30,7 @@ public class FormServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.sendRedirect("form.html");
+		response.sendRedirect("form.html") ; 
 	}
 
 	/**
