@@ -1,4 +1,4 @@
-package com.dashboard.servlet;
+package com.dashboard.servlet.toolservlets;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -8,16 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class HomeServlet
+ * Servlet implementation class ToolServlet
  */
-@WebServlet("/home")
-public class HomeServlet extends HttpServlet {
+@WebServlet("/tools")
+public class ToolServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public HomeServlet() {
+    public ToolServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -26,10 +26,8 @@ public class HomeServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// writer used to send content to browser via response body
-		// redirect to home html
-		response.sendRedirect("home.html");
-		//run on wildfly sever and navigate to http://localhost:8080/DashBoard-Start/home?name=ny
+		// TODO Auto-generated method stub
+		response.sendRedirect("tools.html");
 	}
 
 	/**

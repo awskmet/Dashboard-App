@@ -1,23 +1,26 @@
-package com.dashboard.servlet;
+package com.dashboard.servlet.toolservlets;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class HomeServlet
+ * Servlet implementation class FormServlet
  */
-@WebServlet("/home")
-public class HomeServlet extends HttpServlet {
+@WebServlet("/form")
+public class FormServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public HomeServlet() {
+    public FormServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -26,10 +29,8 @@ public class HomeServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// writer used to send content to browser via response body
-		// redirect to home html
-		response.sendRedirect("home.html");
-		//run on wildfly sever and navigate to http://localhost:8080/DashBoard-Start/home?name=ny
+		// TODO Auto-generated method stub
+		response.sendRedirect("form.html");
 	}
 
 	/**
@@ -37,7 +38,16 @@ public class HomeServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		String input=request.getParameter("inputname");
+		response.setHeader("someheader", "somevalue");
+		response.addCookie(new Cookie("somecookie", "somecookie"));
+		PrintWriter out = response.getWriter();
+		out.println("<html>");
+		out.println("<head></head>");
+		out.println("<body>");
+		out.println("you wrote"+input);
+		out.println("</body>");
+		out.println("</html>");
 	}
 
 }
