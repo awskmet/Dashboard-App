@@ -40,9 +40,15 @@ Include other tags for doing things like for each or calling a method</br>
 "<-%-@ taglib prefix = --In Quotes-- uri = -- In Quotes --%->"</br>
 </br>
 Expression Language:</br>
-Format for referencing things in your code (more generally, things to be evaluated further) </br>
-"$ { Variable/attribute NAME that is added to request by servlet in code (request attribute) }"</br>
+Format for referencing objects or methods (more generally, things to be evaluated further) </br>
+Implicit objects: param.name (pulls name paramater from paramater map) pageContext.request.contextPath, cookie.--cookiename--.value </br>
+"$ { attribute NAME (that represents object/var/method) that is added to request by servlet in code (rto separate markup from code) }"</br>
 "# { can do a set }"</br>
+
+Expression Language: Reference Method:</br>
+Doubled number of entered names:
+${inputObjects.size() * 2}
+${inputObjects.get(0).fieldName}
 </form>
 </body>
 </html>
