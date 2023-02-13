@@ -34,17 +34,36 @@
 			</h:inputText>
 			<br/>
 			<h:commandButton action="jsfform" value="Submit" />
+			<h:commandButton action="#{jsfBeanSaver.addBean(jsfBean.validatedField, jsfBean.beanusField, jsfBean.availDate)}" value="Save For Many" />
 		</div>
 	</h:form>
 	</ui:define>
 	<ui:define name="outPut">
 	<h:outputText value="I will be injected into jsftemplate as output" />
 	<br/>
+	<h:outputText value="Current Item:" />
+	<br/>
 	<h:outputText value="#{jsfBean.validatedField}" />
 	<br/>
 	<h:outputText value="#{jsfBean.beanusField}" />
 	<br/>
 	<h:outputText value="#{jsfBean.availDate}" />
+	</ui:define>
+	
+	<ui:define name="many">
+	<ui:repeat value="#{jsfBeanSaver.savedBeans}" var="anyItem">
+	<td align="center" >
+		 	<h:outputText value="Saved Item:" />
+            <br/>
+			<h:outputText value="#{anyItem.validatedField}" />
+			<br/>
+			<h:outputText value="#{anyItem.beanusField}" />
+			<br/>
+			<h:outputText value="#{anyItem.availDate}" />
+       		<br/>
+       	</td>
+        </ui:repeat>   
+        
 	</ui:define>
 	</ui:composition>
 </html>
