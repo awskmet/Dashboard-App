@@ -13,10 +13,26 @@
 	<br/>
 	<ui:define name="body">
 	<h:outputText value="I will be injected into jsftemplate as body" />
+	<br/>
 	<h:form>
 		<div>
-			<h:outputLabel value="Product Name" />
-			<h:inputText value="#{test.beanusField}" />
+			<h:outputLabel value="Validated Name (text only)" />
+			<br/>
+			<h:inputText id="myInput" value="#{jsfBean.validatedField}" >
+				<f:validateRegex pattern= "[A-Za-z]+"></f:validateRegex>
+			</h:inputText>
+			<br/>
+			<h:outputLabel value="Error message:" />
+			<h:message for = "myInput"/>
+			<br/>
+			<h:outputLabel value="Non-Validated Name" />
+			<h:inputText value="#{jsfBean.beanusField}" />
+			<br/>
+			<h:outputLabel value="Date: dd-MM-yyyy" />
+			<h:inputText id="myInputDate" value="#{jsfBean.availDate}" >
+				<f:convertDateTime type="localDate" pattern= "dd-MM-yyyy"/>
+			</h:inputText>
+			<br/>
 			<h:commandButton action="jsfform" value="Submit" />
 		</div>
 	</h:form>
@@ -24,7 +40,11 @@
 	<ui:define name="outPut">
 	<h:outputText value="I will be injected into jsftemplate as output" />
 	<br/>
-	<h:outputText value="#{test.beanusField}" />
+	<h:outputText value="#{jsfBean.validatedField}" />
+	<br/>
+	<h:outputText value="#{jsfBean.beanusField}" />
+	<br/>
+	<h:outputText value="#{jsfBean.availDate}" />
 	</ui:define>
 	</ui:composition>
 </html>
